@@ -12,7 +12,7 @@ for p in data['profiles']:
     continue
   upi = p['upi']
   i = p['image'].replace('large', 'biggest')
-  if i == '/people/imageraw/no-person/0/biggest':
+  if i == '/people/imageraw/no-person/0/biggest' or os.path.exists('images/' + upi):
     continue
   r = requests.get('https://unidirectory.auckland.ac.nz' + i)
   ct = r.headers['content-type']
